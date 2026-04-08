@@ -1,4 +1,4 @@
-package Easy;
+package com.harshit.Forces;
 import java.util.*;
 
 public class Elephant_617A {

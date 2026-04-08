@@ -1,7 +1,6 @@
-package Easy;
+package com.harshit.Forces;
 
 import java.util.*;
-import java.io.*;
 
 public class Wrong_Subtraction977A {
     public static void main(String [] args) {

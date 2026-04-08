@@ -1,9 +1,6 @@
-package Easy;
+package com.harshit.Forces;
 
 import java.util.Scanner;
-
-import java.util.*;
-import java.io.*;
 
 public class Theatre_1A {
     public static void main(String[] args) {

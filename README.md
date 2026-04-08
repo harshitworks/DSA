@@ -1,4 +1,4 @@
-# 🚀 DSA Solutions by Harshit Gaur
+# 🚀 DSA 
 
 ## 📌 About
 

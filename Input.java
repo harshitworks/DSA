@@ -19,7 +19,7 @@ public class Input {
 
     }
 
-    // Tempplate for taking Input
+    // Template for taking Input
 
 
     public class Main {

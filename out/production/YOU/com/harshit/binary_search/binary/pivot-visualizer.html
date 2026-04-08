@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Pivot Finder Visualizer</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background: #0f172a;
+          color: #e5e7eb;
+          padding: 20px;
+        }
+        h1 {
+          text-align: center;
+        }
+        .array {
+          display: flex;
+          justify-content: center;
+          margin: 20px 0;
+          gap: 10px;
+        }
+        .cell {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          background: #334155;
+          font-size: 18px;
+        }
+        .start { background: #22c55e; }
+        .mid { background: #eab308; }
+        .end { background: #ef4444; }
+        .pivot { background: #a855f7; }
+        .controls {
+          text-align: center;
+          margin-top: 20px;
+        }
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          border-radius: 8px;
+          border: none;
+          cursor: pointer;
+          background: #38bdf8;
+        }
+        .log {
+          margin-top: 20px;
+          background: #020617;
+          padding: 10px;
+          border-radius: 10px;
+          font-family: monospace;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>🔍 Rotated Sorted Array Pivot Visualizer</h1>
+
+<div class="array" id="array"></div>
+
+<div class="controls">
+    <button onclick="step()">Next Step</button>
+</div>
+
+<div class="log" id="log"></div>
+
+<script>
+    // You can change this array
+    const arr = [7, 8, 1, 2, 2, 3, 4, 5, 6];
+
+    let start = 0;
+    let end = arr.length - 1;
+    let found = false;
+
+    function render(mid = -1, pivot = -1) {
+      const container = document.getElementById('array');
+      container.innerHTML = '';
+
+      arr.forEach((val, i) => {
+        const div = document.createElement('div');
+        div.className = 'cell';
+        if (i === start) div.classList.add('start');
+        if (i === mid) div.classList.add('mid');
+        if (i === end) div.classList.add('end');
+        if (i === pivot) div.classList.add('pivot');
+        div.textContent = val;
+        container.appendChild(div);
+      });
+    }
+
+    function log(msg) {
+      document.getElementById('log').innerHTML += msg + '<br>';
+    }
+
+    function step() {
+      if (found || start > end) {
+        log('✅ Done');
+        return;
+      }
+
+      let mid = Math.floor(start + (end - start) / 2);
+      log(`start=${start}, mid=${mid}, end=${end}`);
+
+      if (mid < end && arr[mid] > arr[mid + 1]) {
+        log(`🎯 Pivot found at index ${mid}`);
+        render(mid, mid);
+        found = true;
+        return;
+      }
+
+      if (mid > start && arr[mid - 1] > arr[mid]) {
+        log(`🎯 Pivot found at index ${mid - 1}`);
+        render(mid, mid - 1);
+        found = true;
+        return;
+      }
+
+      if (arr[mid] >= arr[start]) {
+        log('➡️ Left side sorted, moving right');
+        start = mid + 1;
+      } else {
+        log('⬅️ Right side sorted, moving left');
+        end = mid - 1;
+      }
+
+      render(mid);
+    }
+
+    render();
+</script>
+</body>
+</html>

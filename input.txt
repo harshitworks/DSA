@@ -1,3 +1,0 @@
-This is inside the file
-Another line that is line number 2
-line 3

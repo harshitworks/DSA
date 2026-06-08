@@ -7,6 +7,6 @@ public class Main {
 
 
         System.out.println("-----------------------------------------------");
-        System.out.println("While if we talk about the Abstraction then it is hiding the unnecssary details and showing only the valuable information");
+        System.out.println("While if we talk about the Abstraction then it is hiding the unnecessary details and showing only the valuable information");
     }
 }

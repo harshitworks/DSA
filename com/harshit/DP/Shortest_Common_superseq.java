@@ -1,6 +1,6 @@
 package com.harshit.DP;
 
-public class Solution {
+public class Shortest_Common_superseq {
     static void main(String[] args) {
         System.out.println(shortestCommonSupersequence("acbcf","abcdaf"));
     }

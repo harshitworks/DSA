@@ -35,7 +35,6 @@ public class BFS {
                     qu.add(child);
                 }
             }
-
         }
     return list ;
     }

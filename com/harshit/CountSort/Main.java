@@ -20,15 +20,15 @@ public class Main {
                 max = nums[i];
             }
         }
-        int[] arr = new int[max+1];
+        int[] freq = new int[max+1];
         // creates the frequency array :
         for(int i = 0 ; i < n  ; i++) {
-            arr[nums[i]]++;
+            freq[nums[i]]++;
         }
         // now modify the original array
         int k = 0 ;
-        for(int i = 0 ; i< arr.length; i++) {
-            while(arr[i]-->0) {
+        for(int i = 0 ; i< freq.length; i++) {
+            while(freq[i]-->0) {
             nums[k++]=i;
             }
         }
